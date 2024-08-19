@@ -1,0 +1,41 @@
+/* Lógico_1: */
+
+CREATE TABLE Financeiro_Cadastro_Matricula (
+    CPF int,
+    mensalidade int,
+    desconto int,
+    vencimento date,
+    nome str,
+    telefone int,
+    email str,
+    endereco str,
+    RGM int,
+    RGM int,
+    curso str,
+    turno str,
+    periodo int,
+    PRIMARY KEY (CPF, RGM)
+);
+
+CREATE TABLE Ensino (
+    periodo int PRIMARY KEY,
+    disciplinas str,
+    professor str,
+    horario date
+);
+
+CREATE TABLE recebe_periodo (
+    fk_Financeiro_Cadastro_Matricula_CPF int,
+    fk_Financeiro_Cadastro_Matricula_RGM int,
+    fk_Ensino_periodo int
+);
+ 
+ALTER TABLE recebe_periodo ADD CONSTRAINT FK_recebe_periodo_1
+    FOREIGN KEY (fk_Financeiro_Cadastro_Matricula_CPF, fk_Financeiro_Cadastro_Matricula_RGM)
+    REFERENCES Financeiro_Cadastro_Matricula (CPF, RGM)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE recebe_periodo ADD CONSTRAINT FK_recebe_periodo_2
+    FOREIGN KEY (fk_Ensino_periodo)
+    REFERENCES Ensino (periodo)
+    ON DELETE SET NULL;
