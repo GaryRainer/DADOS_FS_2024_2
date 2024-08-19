@@ -1,0 +1,78 @@
+/* Lógico_1: */
+
+CREATE TABLE Aluno (
+    nome str,
+    matricula int,
+    dataNascimento date,
+    sexo str,
+    CPF int PRIMARY KEY,
+    Curso str
+);
+
+CREATE TABLE Turma (
+    matricula int PRIMARY KEY,
+    sala int,
+    horario date,
+    curso str
+);
+
+CREATE TABLE Disciplina (
+    curso str PRIMARY KEY,
+    horario date,
+    cargaHoraria int
+);
+
+CREATE TABLE Professor (
+    nomeDocente str,
+    matriculaDocente int,
+    dataNascimento date,
+    curso str
+);
+
+CREATE TABLE pertence (
+    fk_Aluno_CPF int,
+    fk_Turma_matricula int
+);
+
+CREATE TABLE locado (
+    fk_Turma_matricula int
+);
+
+CREATE TABLE matriculado (
+    fk_Aluno_CPF int,
+    fk_Disciplina_curso str
+);
+
+CREATE TABLE leciona (
+    fk_Disciplina_curso str
+);
+ 
+ALTER TABLE pertence ADD CONSTRAINT FK_pertence_1
+    FOREIGN KEY (fk_Aluno_CPF)
+    REFERENCES Aluno (CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE pertence ADD CONSTRAINT FK_pertence_2
+    FOREIGN KEY (fk_Turma_matricula)
+    REFERENCES Turma (matricula)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE locado ADD CONSTRAINT FK_locado_1
+    FOREIGN KEY (fk_Turma_matricula)
+    REFERENCES Turma (matricula)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE matriculado ADD CONSTRAINT FK_matriculado_1
+    FOREIGN KEY (fk_Aluno_CPF)
+    REFERENCES Aluno (CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE matriculado ADD CONSTRAINT FK_matriculado_2
+    FOREIGN KEY (fk_Disciplina_curso)
+    REFERENCES Disciplina (curso)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE leciona ADD CONSTRAINT FK_leciona_1
+    FOREIGN KEY (fk_Disciplina_curso)
+    REFERENCES Disciplina (curso)
+    ON DELETE SET NULL;
