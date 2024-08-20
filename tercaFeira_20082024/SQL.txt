@@ -1,0 +1,81 @@
+#01 CRIACAO DE ENTIDADE, ATRIBUTOS E MINI DESAFIO.
+
+CREATE TABLE cadastro(
+	CPF INT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL,
+    telefone INT NOT NULL,
+    email VARCHAR(30) NOT NULL,
+    endereco VARCHAR(30) NOT NULL);
+
+INSERT INTO cadastro(CPF, nome, telefone, email, endereco) values (123123412,'Paulo',839873144,'paulogeard@hotmail.com','rua amelia, 123');
+INSERT INTO cadastro(CPF, nome, telefone, email, endereco) values (123415633,'Maria',835673144,'mariarosa@hotmail.com','rua amelia, 243');
+INSERT INTO cadastro(CPF, nome, telefone, email, endereco) values (091234451,'Ana',839873444,'anapaula@hotmail.com','rua bezerra, 1313');
+INSERT INTO cadastro(CPF, nome, telefone, email, endereco) values (412345512,'Cesar',419873144,'cesarrocha@hotmail.com','rua ulisses, 121');
+INSERT INTO cadastro(CPF, nome, telefone, email, endereco) values (141234556,'Mario',839873144,'mario1234@hotmail.com','rua amelia, 5123');
+
+SELECT * FROM cadastro
+ORDER BY CPF ASC;
+
+SELECT COUNT(*) FROM cadastro;
+
+UPDATE cadastro SET nome = 'Claudia' WHERE CPF = 0912344512;
+
+#02 CRIACAO DE ENTIDADE, ATRIBUTOS E MINI DESAFIO.
+CREATE TABLE matricula(
+	RGM INT PRIMARY KEY,
+    CPF INT NOT NULL,
+    curso VARCHAR(15) NOT NULL,
+    turno VARCHAR(10) NOT NULL,
+    periodo INT);
+
+INSERT INTO matricula(RGM, CPF, curso, turno, periodo) values (41424, 123123412, 'COMPUTACAO', 'Manha', 4);
+INSERT INTO matricula(RGM, CPF, curso, turno, periodo) values (41245, 123415633, 'COMPUTACAO', 'Manha', 4);
+INSERT INTO matricula(RGM, CPF, curso, turno, periodo) values (54123, 091234451, 'ADMINISTRAÇÃO', 'Tarde', 5);
+INSERT INTO matricula(RGM, CPF, curso, turno, periodo) values (51324, 412345512, 'ADMINISTRAÇÃO', 'Tarde', 3);
+INSERT INTO matricula(RGM, CPF, curso, turno, periodo) values (51235, 141234556, 'DIREITO', 'Noite', 2);
+
+SELECT DISTINCT curso FROM matricula;
+ORDER BY RGM ASC;
+
+SELECT MAX(RGM) FROM matricula;
+
+UPDATE matricula SET periodo = 3 WHERE RGM = 51235;
+
+#03 CRIACAO DE ENTIDADE, ATRIBUTOS E MINI DESAFIO.
+CREATE TABLE financeiro(
+	conta INT PRIMARY KEY,
+    RGM INT NOT NULL,
+    CPF INT NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    valor FLOAT NOT NULL,
+    vencimento DATE NOT NULL);
+    
+INSERT INTO financeiro(conta, RGM, CPF, nome, valor, vencimento) values (1441551, 41424, 123123412, 'Paulo', 500, '2024-12-02');
+INSERT INTO financeiro(conta, RGM, CPF, nome, valor, vencimento) values (4123567, 41245, 123415633, 'Maria', 480, '2024-10-02');
+INSERT INTO financeiro(conta, RGM, CPF, nome, valor, vencimento) values (4123512, 54123, 091234451, 'Ana', 570, '2024-09-22');
+INSERT INTO financeiro(conta, RGM, CPF, nome, valor, vencimento) values (4145512, 51324, 412345512, 'Cesar', 520, '2024-09-22');
+INSERT INTO financeiro(conta, RGM, CPF, nome, valor, vencimento) values (4144412, 51235, 141234556, 'Mario', 490, '2024-09-22');
+
+SELECT MAX(valor) FROM financeiro;
+
+SELECT MIN(valor) FROM financeiro;
+
+SELECT AVG(valor) AS MEDIA FROM financeiro;
+
+#04 CRIACAO DE ENTIDADE, ATRIBUTOS E MINI DESAFIO.
+CREATE TABLE professor(
+	matricula INT PRIMARY KEY,
+	nome VARCHAR (20) NOT NULL,
+    curso VARCHAR(20),
+    periodo INT NOT NULL,
+    disciplinas VARCHAR(15) NOT NULL);
+    
+INSERT INTO professor(matricula, nome, curso, periodo, disciplinas) values (123456, 'Edgar', 'COMPUTACAO', 4, 'ALGORITMO');
+INSERT INTO professor(matricula, nome, curso, periodo, disciplinas) values (121441, 'Lucia', 'ADMINISTRAÇÃO', 5, 'MARKETING');
+INSERT INTO professor(matricula, nome, curso, periodo, disciplinas) values (121141, 'Sarah', 'ADMINISTRAÇÃO', 3, 'PUBLICIDADE');
+INSERT INTO professor(matricula, nome, curso, periodo, disciplinas) values (241141, 'Pedro', 'DIREITO', 2, 'DIREITO PRIVADO');
+
+SELECT nome FROM professor;
+
+SELECT matricula FROM professor;
+ORDER BY periodo DESC;
