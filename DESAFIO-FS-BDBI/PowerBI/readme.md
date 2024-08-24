@@ -6,7 +6,7 @@ Instruções: Baixar arquivo pbi Desafio Fabrica de Software e arquivo csv depre
 
 Considerações: Base de dados aborda estudo sobre depressão e doenças mentais. O relatório propõe análise descritiva do histórico dos pacientes entrevistados e seus perfis comportamentais a partir de uma estratégia de modelagem combinatória. 
 
-Observação: A base de dados utilizada é muito grande para inserir no Github, por favor utilizar a fonte de dados para baixar a base.
+Observação: A base de dados utilizada é muito grande para inserir diretamente no Github, então foi necessário comprimir o arquivo.
 
 Fonte de dados: https://www.kaggle.com/datasets/anthonytherrien/depression-dataset
 
