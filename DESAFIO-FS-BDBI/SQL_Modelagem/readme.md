@@ -1,0 +1,5 @@
+Atividade desenvolvida no dia 23 de agosto de 2024 durante workshop da Fabrica de Softwares do Unipe.
+
+Proposta de trabalho: Desenvolver modelos conceitual, lógico e físico de banco de dados, criando de 5 a 6 tabelas com 3 tipos de variáveis. Adicionar uma coluna na tabela e inserir de 3 a 4 linhas. Mostrar conteudo e salvar arquivo em no formato .sql.
+
+Considerações: Modelo de estrutura de banco de dados para cadastro de multijogos em plataforma. Banco de dados ‘usuario’ recebe informações de identificador de usuário (userID), e-mail, senha e idade. Após cadastro, as informações do userID são recebidas pelo Banco de dados ‘jogos’ na cardinalidade 1 para 1 e o usuário seleciona as opções de jogos para cadastro na conta acionando as variáveis do tipo booleanos. Com a verificação True, o usuário registra um novo login e senha para o jogo selecionado, o qual é vinculado ao seu userID na cardinalidade 1 para n, podendo n ser muitos ou nulo. 
